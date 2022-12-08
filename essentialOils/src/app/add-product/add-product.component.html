@@ -1,7 +1,7 @@
-<form class="input-form">
+<form #f="ngForm" (ngSubmit)="submitProduct()" validate class="input-form">
   <mat-form-field class="name-input">
     <mat-label>Product Name</mat-label>
-    <input matInput value="">
+    <input matInput />
   </mat-form-field>
   <br>
   <mat-form-field class="description-input">
