@@ -9,9 +9,10 @@
 }
 
 .display-card {
-  flex: 40%;
+  flex: 30%;
   border: 1px solid black;
   margin: 10px;
+  border-radius: 10px;
 }
 
 .uses-container,
@@ -19,6 +20,7 @@
   width: 50%;
   margin-left: 20px;
   margin-right: 20px;
+  font-size: 1.2em;
 }
 
 // .uses-container {}
@@ -33,10 +35,24 @@
 }
 
 .product-name {
-  font-weight: 100;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 2.5em;
+  width: auto;
+  height: auto;
+  padding: 10px 0px;
 }
 
-* {
-  border: 1px solid red;
+.divider {
+  margin-top: 10px;
 }
+
+.product-description {
+  position: relative;
+  font-size: 1.1em;
+  top: 10px;
+  margin-bottom: 50px;
+}
+
+// * {
+//   border: 1px solid red;
+// }

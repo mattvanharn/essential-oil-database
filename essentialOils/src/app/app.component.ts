@@ -15,5 +15,6 @@ export class AppComponent {
   openDialog() {
     this.dialogRef.open(AddProductComponent);
   }
-  constructor(private dialogRef: MatDialog) { }
+  constructor(private dialogRef: MatDialog) {
+  }
 }

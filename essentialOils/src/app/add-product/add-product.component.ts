@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, NgForm } from '@angular/forms';
 import { PRODUCTS } from '../mock-products';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -8,11 +10,7 @@ import { PRODUCTS } from '../mock-products';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent implements OnInit {
-  submitProduct() {
-    alert("You submitted a product");
-    throw new Error('Method not implemented.');
-  }
-  name: string = "";
+
 
   uses = this._formBuilder.group({
     diffuse: true,
@@ -31,6 +29,11 @@ export class AddProductComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  submitProduct() {
+    alert("You submitted a product");
+    throw new Error('Method not implemented.');
   }
 
   ngOnSubmit(): void {
