@@ -1,11 +1,13 @@
-<div>
-  <h1>Essential Oil Inventory</h1>
-</div>
-<div>
-  <app-product-card
-    productName="{{ productName }}"
-    productDescription="{{ productDescription }}"
-    productUses="{{ productUses }}"
-    productBenefits="{{ productBenefits }}"
-  ></app-product-card>
+<div class="body">
+  <div class="header">
+    <h1>Essential Oil Inventory</h1>
+    <button mat-fab class="add-button" color="primary" aria-label="Example fab with a heart icon"
+      (click)="openDialog()">
+      <mat-icon>add</mat-icon> Add Product
+    </button>
+  </div>
+
+  <div class="display-container">
+    <app-display-product></app-display-product>
+  </div>
 </div>
