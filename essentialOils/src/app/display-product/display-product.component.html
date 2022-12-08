@@ -1,30 +1,32 @@
-<mat-card class="display-card" *ngFor="let product of products">
-  <span class="header">
-    <mat-card-header>
-      <mat-card-title class="product-name">{{product.name}}<mat-divider class="divider" [inset]="true"></mat-divider>
-      </mat-card-title>
+<span class="card-container">
+  <mat-card class="display-card" *ngFor="let product of products">
+    <span class="header">
+      <mat-card-header>
+        <mat-card-title class="product-name">{{product.name}}<mat-divider class="divider" [inset]="true"></mat-divider>
+        </mat-card-title>
 
-      <mat-card-subtitle class="product-description">{{product.description}}</mat-card-subtitle>
-    </mat-card-header>
-  </span>
-  <div class="bottom">
-    <span class="uses-container">
-      Uses
-      <div>
-        <ul class="uses">
-          <li>Cleaning</li>
-          <li>Other</li>
-        </ul>
-      </div>
+        <mat-card-subtitle class="product-description">{{product.description}}</mat-card-subtitle>
+      </mat-card-header>
     </span>
-    <span class="benefits-container">
-      Benefits:
-      <div>
-        <ul class="benefits">
-          <li>Aromatherapy</li>
-          <li>Skin cream</li>
-        </ul>
-      </div>
-    </span>
-  </div>
-</mat-card>
+    <div class="bottom">
+      <span class="uses-container">
+        Uses
+        <div>
+          <ul class="uses">
+            <li>Cleaning</li>
+            <li>Other</li>
+          </ul>
+        </div>
+      </span>
+      <span class="benefits-container">
+        Benefits:
+        <div>
+          <ul class="benefits">
+            <li>Aromatherapy</li>
+            <li>Skin cream</li>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </mat-card>
+</span>

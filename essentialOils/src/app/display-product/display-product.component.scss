@@ -1,5 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.card-container {
+  display: flex;
+  width: 98vw;
+  flex-wrap: wrap;
+}
+
 .display-card {
-  width: 45vw;
+  flex: 40%;
   border: 1px solid black;
   margin: 10px;
 }
@@ -19,6 +29,7 @@
 .bottom {
   display: inline-flex;
   width: 100%;
+  height: 50%;
 }
 
 .product-name {
@@ -26,6 +37,6 @@
   font-size: 20px;
 }
 
-// * {
-//   border: 1px solid red;
-// }
+* {
+  border: 1px solid red;
+}
