@@ -13,7 +13,21 @@
   border: 1px solid black;
   margin: 10px;
   border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: white;
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
 }
+
+
+//   background: linear-gradient(to top,
+//       white 0%,
+//       white 80%,
+//       #d2c2fd 80%,
+//       #d2c2fd 100%);
+//
 
 .uses-container,
 .benefits-container {
