@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible;
+  margin: 20px;
+  margin-bottom: 40px;
+}
+
+.add-button {
+  right: 30px;
+  overflow: visible;
+}
+
+.display-container {
+  display: inline-flex;
+}

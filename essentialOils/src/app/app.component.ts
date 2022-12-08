@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  addProduct() {
+    alert("You pressed the button");
+    throw new Error('Method not implemented.');
+  }
   title = 'essentialOils';
 }

@@ -1,0 +1,31 @@
+.display-card {
+  width: 45vw;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.uses-container,
+.benefits-container {
+  width: 50%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+// .uses-container {}
+
+// .benefits-container {}
+
+.header,
+.bottom {
+  display: inline-flex;
+  width: 100%;
+}
+
+.product-name {
+  font-weight: 100;
+  font-size: 20px;
+}
+
+// * {
+//   border: 1px solid red;
+// }
