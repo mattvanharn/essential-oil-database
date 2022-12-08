@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { AddProductComponent } from './add-product/add-product.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,4 +12,8 @@ export class AppComponent {
     throw new Error('Method not implemented.');
   }
   title = 'essentialOils';
+  openDialog() {
+    this.dialogRef.open(AddProductComponent);
+  }
+  constructor(private dialogRef: MatDialog) { }
 }

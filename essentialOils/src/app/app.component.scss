@@ -1,6 +1,5 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   overflow: visible;
   margin: 20px;
@@ -8,10 +7,25 @@
 }
 
 .add-button {
-  right: 30px;
   overflow: visible;
+  margin-left: 500px;
+  width: 180px;
+  text-align: center;
+  border-radius: 30px;
+  font-size: large;
 }
 
 .display-container {
   display: inline-flex;
 }
+
+.body {
+  height: 100vw;
+  width: 100vw;
+  position: absolute;
+  background-color: #eceaea;
+}
+
+// * {
+//   border: 1px solid red;
+// }

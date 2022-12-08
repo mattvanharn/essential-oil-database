@@ -1,10 +1,13 @@
-<div class="header">
-  <h1>Essential Oil Inventory</h1>
-  <button mat-fab class="add-button" color="primary" aria-label="Example fab with a heart icon" (click)="addProduct()">
-    <mat-icon>add</mat-icon>
-  </button>
-</div>
+<div class="body">
+  <div class="header">
+    <h1>Essential Oil Inventory</h1>
+    <button mat-fab class="add-button" color="primary" aria-label="Example fab with a heart icon"
+      (click)="openDialog()">
+      <mat-icon>add</mat-icon> Add Product
+    </button>
+  </div>
 
-<div class="display-container">
-  <app-display-product></app-display-product>
+  <div class="display-container">
+    <app-display-product></app-display-product>
+  </div>
 </div>
