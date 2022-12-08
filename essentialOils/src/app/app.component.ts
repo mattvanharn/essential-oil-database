@@ -15,32 +15,10 @@ interface essentialOilsData {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public productName = '';
-  public productDescription = '';
-  public productUses = {};
-  public productBenefits = {};
+  constructor(private dialogRef: MatDialog) {}
 
-  constructor(private db: AngularFirestore, private dialogRef: MatDialog) {
-    db.firestore.settings({ experimentalForceLongPolling: true });
-    db.doc<essentialOilsData>('/products/clarysage')
-      .valueChanges()
-      .subscribe((result) => {
-        if (result) {
-          console.log(result.benefits);
-          this.productName = result.name;
-          this.productDescription = result.description;
-          db.doc('/products/clarysage/uses/usesDoc')
-            .valueChanges()
-            .subscribe((res) => {
-              if (res) {
-                console.log(res);
-              }
-            });
-        }
-      });
-  }
   addProduct() {
-    alert("You pressed the button");
+    alert('You pressed the button');
     throw new Error('Method not implemented.');
   }
   title = 'essentialOils';
