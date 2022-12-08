@@ -36,10 +36,11 @@ export class AddProductComponent implements OnInit {
 
   ngOnSubmit(): void {}
   submitProduct() {
-    // this.db
-    //   .collection('/products')
-    //   .doc(this.name.replace(/\s/g, '').toLowerCase())
-    //   .set({ name: this.name, description: this.description });
+    this.db
+      .collection('products')
+      .doc(this.name.replace(/\s/g, '').toLowerCase())
+      .set({ name: this.name, description: this.description });
+
     alert(
       'You submitted a product:' +
         this.name +
