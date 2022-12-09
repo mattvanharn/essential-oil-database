@@ -1,4 +1,4 @@
-<form class="input-form">
+<form #f="ngForm" (ngSubmit)="submitProduct()" validate class="input-form">
   <mat-form-field class="name-input">
     <mat-label>Product Name</mat-label>
     <input
@@ -47,6 +47,7 @@
     <h4>You chose:</h4>
     {{ uses.value | json }}
   </section>
+
   <section class="benefits-section" [formGroup]="benefits">
     <h2 class="benefits-title">Select your benefits:</h2>
     <p>
