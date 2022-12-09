@@ -1,14 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+.card-container {
+  display: flex;
+  width: 98vw;
+  flex-wrap: wrap;
+}
+
 .display-card {
-  width: 45vw;
+  flex: 30%;
   border: 1px solid black;
   margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: white;
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
 }
+
+
+//   background: linear-gradient(to top,
+//       white 0%,
+//       white 80%,
+//       #d2c2fd 80%,
+//       #d2c2fd 100%);
+//
 
 .uses-container,
 .benefits-container {
   width: 50%;
   margin-left: 20px;
   margin-right: 20px;
+  font-size: 1.2em;
 }
 
 // .uses-container {}
@@ -19,11 +45,26 @@
 .bottom {
   display: inline-flex;
   width: 100%;
+  height: 50%;
 }
 
 .product-name {
-  font-weight: 100;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 2.5em;
+  width: auto;
+  height: auto;
+  padding: 10px 0px;
+}
+
+.divider {
+  margin-top: 10px;
+}
+
+.product-description {
+  position: relative;
+  font-size: 1.1em;
+  top: 10px;
+  margin-bottom: 50px;
 }
 
 // * {

@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder } from '@angular/forms';
 import { PRODUCTS } from '../mock-products';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -36,10 +38,10 @@ export class AddProductComponent implements OnInit {
 
   ngOnSubmit(): void {}
   submitProduct() {
-    // this.db
-    //   .collection('/products')
-    //   .doc(this.name.replace(/\s/g, '').toLowerCase())
-    //   .set({ name: this.name, description: this.description });
+    this.db
+      .collection('products')
+      .doc(this.name.replace(/\s/g, '').toLowerCase())
+      .set({ name: this.name, description: this.description });
     alert(
       'You submitted a product:' +
         this.name +
