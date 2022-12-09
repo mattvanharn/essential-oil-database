@@ -18,8 +18,8 @@ export class AddProductComponent implements OnInit {
   ) {}
 
   uses = this._formBuilder.group({
-    diffuse: true,
-    ingest: true,
+    diffuse: false,
+    ingest: false,
     surfaceCleaning: false,
     topical: false,
   });
@@ -36,9 +36,11 @@ export class AddProductComponent implements OnInit {
 
   ngOnSubmit(): void {}
   submitProduct() {
+    const path = this.name.replace(/\s/g, '').toLowerCase();
+    console.log(path);
     this.db
       .collection('products')
-      .doc(this.name.replace(/\s/g, '').toLowerCase())
+      .doc(path)
       .set({ name: this.name, description: this.description });
 
     alert(
@@ -49,6 +51,6 @@ export class AddProductComponent implements OnInit {
         ', uses: ' +
         this.uses.value.diffuse
     );
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 }
