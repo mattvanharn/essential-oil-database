@@ -4,12 +4,12 @@
 
 export const environment = {
   firebase: {
-    projectId: 'essentialoilsinventory-ddd7f',
-    appId: '1:783750781337:web:762c134605317ef59e1b08',
-    storageBucket: 'essentialoilsinventory-ddd7f.appspot.com',
-    apiKey: 'AIzaSyAX2v1b0KnuetjtyyeRZanpwA5drZeYnFo',
-    authDomain: 'essentialoilsinventory-ddd7f.firebaseapp.com',
-    messagingSenderId: '783750781337',
+    projectId: 'essential-oils-inventory-5bade',
+    appId: '1:1083379576823:web:06bfc2be52675d7cb948f2',
+    storageBucket: 'essential-oils-inventory-5bade.appspot.com',
+    apiKey: 'AIzaSyCvIRhyuFTR8BNm1BBNUCeDcfZkUe5k3kc',
+    authDomain: 'essential-oils-inventory-5bade.firebaseapp.com',
+    messagingSenderId: '1083379576823',
   },
   production: false
 };
