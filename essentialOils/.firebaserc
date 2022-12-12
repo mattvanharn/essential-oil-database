@@ -1,21 +1,14 @@
 {
   "targets": {
-    "essentialoilsinventory": {
+    "essential-oils-inventory-5bade": {
       "hosting": {
         "essentialOils": [
-          "essentialoilsinventory"
-        ]
-      }
-    },
-    "essentialoilsinventory-ddd7f": {
-      "hosting": {
-        "essentialOils": [
-          "essentialoilsinventory-ddd7f"
+          "essential-oils-inventory-5bade"
         ]
       }
     }
   },
   "projects": {
-    "default": "essentialoilsinventory-ddd7f"
+    "default": "essential-oils-inventory-5bade"
   }
 }
