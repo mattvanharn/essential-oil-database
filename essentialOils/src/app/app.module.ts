@@ -21,6 +21,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatInputModule,
     MatDialogModule,
+    MatToolbarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
