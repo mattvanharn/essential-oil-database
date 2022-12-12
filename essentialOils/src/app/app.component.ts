@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from './add-product/add-product.component';
+interface essentialOilsData {
+  name: string;
+  description: string;
+  uses: [];
+  benefits: [];
+}
 
 @Component({
   selector: 'app-root',
