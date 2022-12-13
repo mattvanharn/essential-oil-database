@@ -15,7 +15,6 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
   products: Product[] = [];
   displayedProducts: Product[] = [];
 
@@ -29,20 +28,37 @@ export class AppComponent implements OnInit {
   checked8: boolean = false;
   checked9: boolean = false;
 
-  constructor(private dialogRef: MatDialog, public productService: ProductService, private _formBuilder: FormBuilder) { }
+  constructor(
+    private dialogRef: MatDialog,
+    public productService: ProductService,
+    private _formBuilder: FormBuilder,
+    private db: AngularFirestore
+  ) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(products => this.products = products);
+    this.db.firestore.settings({ experimentalForceLongPolling: true });
+    this.db
+      .collection<Product>('products')
+      .valueChanges()
+      .subscribe((items) => {
+        if (items) {
+          this.products = [];
+          items.forEach((doc) => {
+            this.products.push(doc);
+          });
+        }
+        console.log(this.products[0].uses);
+      });
     this.displayedProducts = this.products;
   }
 
   filterProductsByUse(index: number) {
-    return this.products.filter(product => product.uses[index] === true);
+    return this.products.filter((product) => product.uses[index] === true);
     throw new Error('Method not implemented.');
   }
 
   filterProductsByBenefit(index: number) {
-    return this.products.filter(product => product.benefits[index] === true);
+    return this.products.filter((product) => product.benefits[index] === true);
     throw new Error('Method not implemented.');
   }
 
@@ -53,20 +69,24 @@ export class AppComponent implements OnInit {
 
   title = 'essentialOils';
 
-  openDialog() {
+  openAddDialog() {
     this.dialogRef.open(AddProductComponent);
   }
 
   onChecked1() {
     this.checked1 = !this.checked1;
-    this.checked1 ? this.displayedProducts = this.filterProductsByUse(0) : this.displayedProducts = this.products;
+    this.checked1
+      ? (this.displayedProducts = this.filterProductsByUse(0))
+      : (this.displayedProducts = this.products);
     return false;
     throw new Error('Method not implemented.');
   }
 
   onChecked2() {
     this.checked2 = !this.checked2;
-    this.checked2 ? this.displayedProducts = this.filterProductsByUse(1) : this.displayedProducts = this.products;
+    this.checked2
+      ? (this.displayedProducts = this.filterProductsByUse(1))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');
@@ -74,7 +94,9 @@ export class AppComponent implements OnInit {
 
   onChecked3() {
     this.checked3 = !this.checked3;
-    this.checked3 ? this.displayedProducts = this.filterProductsByUse(2) : this.displayedProducts = this.products;
+    this.checked3
+      ? (this.displayedProducts = this.filterProductsByUse(2))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');
@@ -82,7 +104,9 @@ export class AppComponent implements OnInit {
 
   onChecked4() {
     this.checked4 = !this.checked4;
-    this.checked4 ? this.displayedProducts = this.filterProductsByUse(3) : this.displayedProducts = this.products;
+    this.checked4
+      ? (this.displayedProducts = this.filterProductsByUse(3))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');
@@ -90,7 +114,9 @@ export class AppComponent implements OnInit {
 
   onChecked5() {
     this.checked5 = !this.checked5;
-    this.checked5 ? this.displayedProducts = this.filterProductsByBenefit(0) : this.displayedProducts = this.products;
+    this.checked5
+      ? (this.displayedProducts = this.filterProductsByBenefit(0))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');
@@ -98,7 +124,9 @@ export class AppComponent implements OnInit {
 
   onChecked6() {
     this.checked6 = !this.checked6;
-    this.checked6 ? this.displayedProducts = this.filterProductsByBenefit(1) : this.displayedProducts = this.products;
+    this.checked6
+      ? (this.displayedProducts = this.filterProductsByBenefit(1))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');
@@ -106,7 +134,9 @@ export class AppComponent implements OnInit {
 
   onChecked7() {
     this.checked7 = !this.checked7;
-    this.checked7 ? this.displayedProducts = this.filterProductsByBenefit(2) : this.displayedProducts = this.products;
+    this.checked7
+      ? (this.displayedProducts = this.filterProductsByBenefit(2))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');
@@ -114,7 +144,9 @@ export class AppComponent implements OnInit {
 
   onChecked8() {
     this.checked8 = !this.checked8;
-    this.checked8 ? this.displayedProducts = this.filterProductsByBenefit(3) : this.displayedProducts = this.products;
+    this.checked8
+      ? (this.displayedProducts = this.filterProductsByBenefit(3))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');
@@ -122,7 +154,9 @@ export class AppComponent implements OnInit {
 
   onChecked9() {
     this.checked9 = !this.checked9;
-    this.checked9 ? this.displayedProducts = this.filterProductsByBenefit(4) : this.displayedProducts = this.products;
+    this.checked9
+      ? (this.displayedProducts = this.filterProductsByBenefit(4))
+      : (this.displayedProducts = this.products);
     console.table(this.displayedProducts);
     return false;
     throw new Error('Method not implemented.');

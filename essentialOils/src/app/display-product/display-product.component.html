@@ -1,25 +1,29 @@
 <span class="card-container">
   <mat-card class="display-card" *ngFor="let product of products">
-  <div class="title-container">
-        <mat-card-title class="product-name"
-          >{{ product.name }}
-          <span
-                <button mat-mini-fab class="edit-icon">
-        <mat-icon>edit</mat-icon>
-      </button>
-            ><button
-              mat-icon-button
-              class="delet-button"
-              (click)="deleteProduct(product)"
-            >
-              <mat-icon>delete</mat-icon>
-            </button></span
+    <div class="title-container">
+      <mat-card-title class="product-name">
+        {{ product.name }}
+        <span>
+          <button
+            mat-mini-fab
+            class="edit-icon"
+            (click)="openEditDialog(product)"
           >
-        </mat-card-title>
-        </div>
-        <mat-card-subtitle class="product-description">{{
-          product.description
-        }}</mat-card-subtitle>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-mini-fab
+            class="delet-button"
+            (click)="deleteProduct(product)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </span>
+      </mat-card-title>
+    </div>
+    <mat-card-subtitle class="product-description">
+      {{ product.description }}
+    </mat-card-subtitle>
     <div class="bottom">
       <span class="uses-container">
         Uses
