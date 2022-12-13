@@ -1,12 +1,10 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Form, FormBuilder, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from './add-product/add-product.component';
 
 import { ProductService } from './product.service';
 import { Product } from './product';
-import { NgOptimizedImage } from '@angular/common';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -27,6 +25,7 @@ export class AppComponent implements OnInit {
 
   products$!: Observable<Product[]>;
   displayedProducts$!: Observable<Product[]>;
+  search: string = '';
 
   constructor(
     private dialogRef: MatDialog,
