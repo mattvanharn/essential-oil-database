@@ -18,7 +18,7 @@ export class DisplayProductComponent implements OnInit {
   products$!: Observable<Product[]>;
   displayedProducts!: Observable<Product[]>;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private dialogRef: MatDialog) { }
 
   ngOnInit(): void {
     this.getProducts$();
@@ -34,6 +34,17 @@ export class DisplayProductComponent implements OnInit {
     this.productService.deleteProduct(product);
     }
     
+  openEditDialog(product: Product) {
+    this.dialogRef.open(EditProductComponent, {
+      data: {
+        name: product.name,
+        description: product.description,
+        uses: product.uses,
+        benefits: product.benefits,
+      },
+    });
+  }
+
   openEditDialog(product: Product) {
     this.dialogRef.open(EditProductComponent, {
       data: {
