@@ -1,10 +1,12 @@
 <span class="card-container">
   <mat-card class="display-card" *ngFor="let product of products">
-    <span class="header">
-      <mat-card-header>
+  <div class="title-container">
         <mat-card-title class="product-name"
           >{{ product.name }}
           <span
+                <button mat-mini-fab class="edit-icon">
+        <mat-icon>edit</mat-icon>
+      </button>
             ><button
               mat-icon-button
               class="delet-button"
@@ -13,13 +15,11 @@
               <mat-icon>delete</mat-icon>
             </button></span
           >
-          <mat-divider class="divider"></mat-divider>
         </mat-card-title>
+        </div>
         <mat-card-subtitle class="product-description">{{
           product.description
         }}</mat-card-subtitle>
-      </mat-card-header>
-    </span>
     <div class="bottom">
       <span class="uses-container">
         Uses

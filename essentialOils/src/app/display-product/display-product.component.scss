@@ -1,72 +1,72 @@
 @use '@angular/material' as mat;
 @import 'src/styles.scss';
 
-
 * {
   box-sizing: border-box;
 }
 
 .card-container {
   display: flex;
-  width: 98vw;
   flex-wrap: wrap;
 }
 
 .display-card {
-  flex: 30%;
+  flex: 1 0 30%;
   margin: 10px;
   border-radius: 10px;
   // background-color: var(--md-sys-color-primary-container);
   background: linear-gradient(to top,
       mat.get-color-from-palette($my-primary, 50) 0%,
       mat.get-color-from-palette($my-primary, 50) 80%,
-      mat.get-color-from-palette($my-primary, 100) 0%,
-      mat.get-color-from-palette($my-primary, 100));
+      mat.get-color-from-palette($my-primary, 100) 80%,
+      mat.get-color-from-palette($my-primary, 100) 100%, );
 
   &:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 }
 
+.title-container {
+  display: flex;
+  justify-content: space-between;
+}
 
-
+.edit-icon {
+  float: right;
+  top: -10px;
+}
 
 .uses-container,
 .benefits-container {
-  width: 50%;
-  margin-left: 20px;
-  margin-right: 20px;
   font-size: 1.2em;
+  color: var(--high-emphasis-helper);
+  width: 50%;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 // .uses-container {}
 
 // .benefits-container {}
 
-.header,
 .bottom {
-  display: inline-flex;
-  width: 100%;
-  height: 50%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
 }
 
 .product-name {
   font-weight: 400;
-  font-size: 2.5em;
-  width: auto;
-  height: auto;
-  padding: 10px 0px;
-}
-
-.divider {
-  margin-top: 10px;
+  font-size: 2.5em !important;
+  color: var(--high-emphasis-helper);
+  padding-bottom: 40px;
 }
 
 .product-description {
-  position: relative;
-  font-size: 1.1em;
-  top: 10px;
-  margin-bottom: 50px;
+  font-size: 1.5em;
+  margin-bottom: 100px;
+  color: var(--high-emphasis-helper);
 }
 
 .delet-button {

@@ -1,15 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Product } from '../product';
-import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-display-product',
   templateUrl: './display-product.component.html',
   styleUrls: ['./display-product.component.scss'],
 })
-export class DisplayProductComponent implements OnInit {
-  products: Product[] = [];
+
+export class DisplayProductComponent {
+  @Input() displayedProducts: Product[] = [];
 
   constructor(
     private productService: ProductService,
@@ -27,10 +27,6 @@ export class DisplayProductComponent implements OnInit {
         }
         console.log(this.products[0].uses);
       });
-  }
-
-  ngOnInit(): void {
-    this.getProducts();
   }
 
   getProducts(): void {

@@ -1,49 +1,140 @@
 @use '@angular/material' as mat;
 @import 'src/styles.scss';
 
-
-.header,
-.display-container {
-  margin: 10px;
+.body {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: none;
 }
 
 .header {
-  display: flex;
-  overflow: visible;
-  align-items: center;
   height: 100px;
   margin: 0;
   background-color: mat.get-color-from-palette($my-primary);
+  position: fixed;
+  padding: 20px;
+  z-index: 2;
 }
 
-.add-button {
-  overflow: visible;
-  margin-left: auto;
-  width: 180px;
-  text-align: center;
-  border-radius: 30px;
-  font-size: large;
-  margin-right: 20px;
+.sidenav-container {
+  flex: 1 0 auto;
+  margin-top: 100px;
 }
 
 .display-container {
-  display: flex;
-  flex-direction: row;
-  // justify-content: space-between;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
+  height: auto;
+  width: 100%;
+  // margin-top: 100px;t
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    flex: auto;
+  }
 }
 
-.body {
-  left: 0;
-  right: 0;
-  position: absolute;
+.nav-item {
+  min-height: 70px;
+  width: 300px;
+  text-align: left;
+  background-color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button-text {
+  // border: 1px solid red;
+  font-size: 1.5em;
+  padding-left: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.add-button,
+.expansion-panel {
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  width: 100%;
+  padding-left: 10px;
+}
+
+// .expansion-panel:hover {
+//   background-color: mat.get-color-from-palette($my-accent, 300) !important;
+// }
+
+.filter-select {
+  width: 300px;
+}
+
+.uses-section {
+  margin-top: 10px;
+}
+
+.uses-section,
+.benefits-section {
+  width: 300px;
+  margin-left: 0px;
+  padding: 0;
+}
+
+.benefits-section {
+  margin-top: 20px;
+}
+
+.filter-checkbox {
+  width: 100%;
+  height: auto;
+  padding: 10px 0px 10px 40px;
+  margin: -5px 0 -5px -24px;
+}
+
+.hover-background:hover {
+  background-color: mat.get-color-from-palette($my-accent) !important;
+  cursor: pointer;
 }
 
 .title {
   color: white;
-  font-size: 3em !important;
+  font-size: 1.5em !important;
+  padding: 10px;
+  width: 100%;
+  padding-left: 60px;
+}
+
+.menu-icon {
+  color: white;
+  font-size: 5em;
+}
+
+@media screen and (min-width: 992px) {
+  .title {
+    font-size: 2.5em !important;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2em;
+  }
+
+  .add-button {
+    align-self: none;
+  }
 }
 
 // * {
