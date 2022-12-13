@@ -1,26 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { PRODUCTS } from './mock-products';
 import { FormGroup } from '@angular/forms';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
   products$: Observable<Product[]>;
   constructor(private db: AngularFirestore) {
     this.db.firestore.settings({ experimentalForceLongPolling: true });
-    this.products$ = this.db.collection<Product>('products')
-      .valueChanges()
+    this.products$ = this.db.collection<Product>('products').valueChanges();
   }
 
   getProducts$(): Observable<Product[]> {
-    return this.db.collection<Product>('products')
-      .valueChanges()
+    return this.db.collection<Product>('products').valueChanges();
   }
 
   deleteProduct(product$: Product): void {
@@ -35,9 +30,13 @@ export class ProductService {
       });
   }
 
-  submitProduct(name: string, description: string, uses: FormGroup, benefits: FormGroup) {
+  submitProduct(
+    name: string,
+    description: string,
+    uses: FormGroup,
+    benefits: FormGroup
+  ) {
     const path: string = name.replace(/\s/g, '').toLowerCase();
-    // console.log('hi there', path);
     this.db
       .doc('/products/' + path)
       .set({
@@ -55,7 +54,7 @@ export class ProductService {
           benefits.value.painRelief,
           benefits.value.sleep,
           benefits.value.stressRelief,
-        ]
+        ],
       })
       .then(() => {
         console.log('Success');
@@ -65,4 +64,3 @@ export class ProductService {
       });
   }
 }
-
