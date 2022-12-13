@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
 
   title = 'essentialOils';
 
-  openDialog() {
+  openAddDialog() {
     this.dialogRef.open(AddProductComponent);
   }
 
