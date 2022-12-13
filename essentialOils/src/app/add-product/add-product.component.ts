@@ -1,9 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { doc, setDoc } from 'firebase/firestore';
 import { FormBuilder } from '@angular/forms';
-import { PRODUCTS } from '../mock-products';
-import { Product } from '../product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -43,4 +40,3 @@ export class AddProductComponent implements OnInit {
     this.productService.submitProduct(this.name, this.description, this.uses, this.benefits);
   }
 }
-

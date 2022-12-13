@@ -25,13 +25,6 @@
     </p>
   </section>
 
-  <!--
-    <section class="uses-section" [formGroup]="uses">
-    <h4>You chose:</h4>
-    {{ uses.value | json }}
-  </section>
--->
-
   <section class="benefits-section" [formGroup]="editBenefits">
     <h2 class="benefits-title">Select your benefits:</h2>
     <p>
@@ -51,12 +44,15 @@
     </p>
   </section>
 
-  <button class="submit-product-button" mat-raised-button extended color="primary" (click)="editProduct()"
-    mat-dialog-close>
+  <!-- <section class="benefits-section" [formGroup]="benefits">
+    <h4>You chose:</h4>
+    {{benefits.value | json}}
+  </section> -->
+
+  <button class="submit-product-button" mat-raised-button extended color="primary" (click)="editProduct()">
     Submit
   </button>
-  <button class="delete-button" mat-mini-fab extended color="primary" (click)="deleteProduct(data.name)"
-    mat-dialog-close>
+  <button class="delete-button" mat-mini-fab extended color="primary" (click)="deleteProduct(data.name)">
     <mat-icon>delete</mat-icon>
   </button>
 </form>

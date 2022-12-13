@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProductComponent } from '../edit-product/edit-product.component';
@@ -12,13 +11,14 @@ import { ProductService } from '../product.service';
   templateUrl: './display-product.component.html',
   styleUrls: ['./display-product.component.scss'],
 })
-
 export class DisplayProductComponent implements OnInit {
-
   products$!: Observable<Product[]>;
   displayedProducts!: Observable<Product[]>;
 
-  constructor(private productService: ProductService, private dialogRef: MatDialog) { }
+  constructor(
+    private productService: ProductService,
+    private dialogRef: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getProducts$();
