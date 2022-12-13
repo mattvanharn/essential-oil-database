@@ -1,12 +1,78 @@
 <div class="body">
   <mat-toolbar class="header">
-    <h1 class="title">Essential Oil Inventory</h1>
-    <button mat-fab class="add-button" aria-label="Example fab with a heart icon" (click)="openDialog()">
-      <mat-icon>add</mat-icon> Add Product
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon class="menu-icon">menu</mat-icon>
     </button>
+    <h1 class="title">Essential Oil Inventory</h1>
   </mat-toolbar>
 
-  <div class="display-container">
-    <app-display-product></app-display-product>
-  </div>
+  <mat-sidenav-container class="sidenav-container">
+
+    <!-- Sidenav Panel -->
+    <mat-sidenav #snav mode="push" [fixedInViewport]="true" fixedTopGap="100">
+
+      <!-- Add Product -->
+      <button class="add-button nav-item hover-background" (click)=" openDialog()">
+        <span class="button-text">
+          <mat-icon>add</mat-icon> &nbsp;Add Product
+        </span>
+      </button>
+
+      <!-- Filter  -->
+      <mat-expansion-panel class="filter-select">
+        <mat-expansion-panel-header class="expansion-panel nav-item hover-background">
+          <mat-panel-title class="filter-select">
+            <span class="button-text">
+              <mat-icon>filter_list</mat-icon> &nbsp;Filter
+            </span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <section class="uses-section" [formGroup]="uses">
+          <h2 class="uses-title">Filter uses:</h2>
+          <p class="hover-background filter-checkbox" (click)="onChecked1()">
+            <mat-checkbox color="accent" formControlName="diffuse" [(ngModel)]="checked1">Diffuse
+            </mat-checkbox>
+          </p>
+          <p class="hover-background filter-checkbox" (click)="onChecked2()">
+            <mat-checkbox color="accent" formControlName="topical" [(ngModel)]="checked2">Topical</mat-checkbox>
+          </p>
+          <p class="hover-background filter-checkbox" (click)="onChecked3()">
+            <mat-checkbox color="accent" formControlName="ingest" [(ngModel)]="checked3">Ingest</mat-checkbox>
+          </p>
+          <p class="hover-background filter-checkbox" (click)="onChecked4()">
+            <mat-checkbox color="accent" formControlName="surfaceCleaning" [(ngModel)]="checked4">Surface Cleaning
+            </mat-checkbox>
+          </p>
+        </section>
+        <section class="benefits-section" [formGroup]="benefits">
+          <h2 class="benefits-title">Filter benefits:</h2>
+          <p class="hover-background filter-checkbox" (click)="onChecked5()">
+            <mat-checkbox color="accent" formControlName="boostMood" [(ngModel)]="checked5">Boost Mood</mat-checkbox>
+          </p>
+          <p class="hover-background filter-checkbox" (click)="onChecked6()">
+            <mat-checkbox color="accent" formControlName="stressRelief" [(ngModel)]="checked6">Stress Relief
+            </mat-checkbox>
+          </p>
+          <p class="hover-background filter-checkbox" (click)="onChecked7()">
+            <mat-checkbox color="accent" formControlName="sleep" [(ngModel)]="checked7">Sleep</mat-checkbox>
+          </p>
+          <p class="hover-background filter-checkbox" (click)="onChecked8()">
+            <mat-checkbox color="accent" formControlName="inflammation" [(ngModel)]="checked8">Inflammation
+            </mat-checkbox>
+          </p>
+          <p class="hover-background filter-checkbox" (click)="onChecked9()">
+            <mat-checkbox value="5" color="accent" formControlName="painRelief" [(ngModel)]="checked9">Pain Relief
+            </mat-checkbox>
+          </p>
+        </section>
+      </mat-expansion-panel>
+    </mat-sidenav>
+
+    <!-- Display Container -->
+    <mat-sidenav-content>
+      <div class="display-container">
+        <app-display-product [displayedProducts]="displayedProducts"></app-display-product>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

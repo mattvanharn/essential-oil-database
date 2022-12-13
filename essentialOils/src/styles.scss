@@ -39,5 +39,10 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  --high-emphasis-helper: #00000087;
+  --default-helper-text: #00000060;
+}
+
 @include mat.core-theme($my-theme);
 @include mat.all-component-themes($my-theme);
