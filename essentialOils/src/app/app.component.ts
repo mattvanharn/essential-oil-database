@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts$();
   }
+
   getProducts$() {
     this.products$ = this.productService.getProducts$();
     this.displayedProducts$ = this.products$;
@@ -57,13 +58,13 @@ export class AppComponent implements OnInit {
 
   title = 'essentialOils';
 
-  openDialog() {
+  openAddDialog() {
     this.dialogRef.open(AddProductComponent);
   }
 
   onChecked1() {
     this.checked1 = !this.checked1;
-    // this.checked1 ? this.displayedProducts$ = this.filterProducts$ByUse(0) : this.displayedProducts$ = this.products$;
+    // this.checked1 ? this.displayedProducts = this.filterProductsByUse(0) : this.displayedProducts = this.products;
     return false;
     throw new Error('Method not implemented.');
   }
@@ -142,8 +143,8 @@ export class AppComponent implements OnInit {
   benefits = this._formBuilder.group({
     boostMood: false,
     inflammation: false,
-    painRelief: false,
-    sleep: false,
+    painRelief: true,
+    sleep: true,
     stressRelief: false,
   });
 }

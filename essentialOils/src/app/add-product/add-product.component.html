@@ -1,62 +1,82 @@
 <form #f="ngForm" validate class="input-form">
   <mat-form-field class="name-input">
     <mat-label>Product Name</mat-label>
-    <input matInput type="text" [(ngModel)]="name" [ngModelOptions]="{ standalone: true }" />
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="name"
+      [ngModelOptions]="{ standalone: true }"
+    />
   </mat-form-field>
   <br />
   <mat-form-field class="description-input">
     <mat-label>Product Description</mat-label>
-    <textarea matInput type="text" [(ngModel)]="description" [ngModelOptions]="{ standalone: true }"></textarea>
+    <textarea
+      matInput
+      type="text"
+      [(ngModel)]="description"
+      [ngModelOptions]="{ standalone: true }"
+    ></textarea>
   </mat-form-field>
 
   <section class="uses-section" [formGroup]="uses">
     <h2 class="uses-title">Select your uses:</h2>
     <p>
-      <mat-checkbox color="accent" formControlName="diffuse">Diffuse</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="diffuse"
+        >Diffuse</mat-checkbox
+      >
     </p>
     <p>
-      <mat-checkbox color="accent" formControlName="topical">Topical</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="topical"
+        >Topical</mat-checkbox
+      >
     </p>
     <p>
-      <mat-checkbox color="accent" formControlName="ingest">Ingest</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="ingest"
+        >Ingest</mat-checkbox
+      >
     </p>
     <p>
-      <mat-checkbox color="accent" formControlName="surfaceCleaning">Surface Cleaning</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="surfaceCleaning"
+        >Surface Cleaning</mat-checkbox
+      >
     </p>
   </section>
-
-  <!--
-    <section class="uses-section" [formGroup]="uses">
-    <h4>You chose:</h4>
-    {{ uses.value | json }}
-  </section>
--->
 
   <section class="benefits-section" [formGroup]="benefits">
     <h2 class="benefits-title">Select your benefits:</h2>
     <p>
-      <mat-checkbox color="accent" formControlName="boostMood">Boost Mood</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="boostMood"
+        >Boost Mood</mat-checkbox
+      >
     </p>
     <p>
-      <mat-checkbox color="accent" formControlName="stressRelief">Stress Relief</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="stressRelief"
+        >Stress Relief</mat-checkbox
+      >
     </p>
     <p>
       <mat-checkbox color="accent" formControlName="sleep">Sleep</mat-checkbox>
     </p>
     <p>
-      <mat-checkbox color="accent" formControlName="inflammation">Inflammation</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="inflammation"
+        >Inflammation</mat-checkbox
+      >
     </p>
     <p>
-      <mat-checkbox color="accent" formControlName="painRelief">Pain Relief</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="painRelief"
+        >Pain Relief</mat-checkbox
+      >
     </p>
   </section>
 
-  <!-- <section class="benefits-section" [formGroup]="benefits">
-    <h4>You chose:</h4>
-    {{benefits.value | json}}
-  </section> -->
-
-  <button class="submit-product-button" mat-raised-button extended color="primary" (click)="submitProduct()">
+  <button
+    class="submit-product-button"
+    mat-raised-button
+    extended
+    color="primary"
+    (click)="submitProduct()"
+  >
     Submit
   </button>
 </form>
