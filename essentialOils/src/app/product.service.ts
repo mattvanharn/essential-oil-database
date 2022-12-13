@@ -3,6 +3,7 @@ import { Product } from './product';
 import { Observable, of } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { PRODUCTS } from './mock-products';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({
@@ -33,4 +34,35 @@ export class ProductService {
         console.error('Error removing doc: ', err);
       });
   }
+
+  submitProduct(name: string, description: string, uses: FormGroup, benefits: FormGroup) {
+    const path: string = name.replace(/\s/g, '').toLowerCase();
+    // console.log('hi there', path);
+    this.db
+      .doc('/products/' + path)
+      .set({
+        name: name,
+        description: description,
+        uses: [
+          uses.value.diffuse,
+          uses.value.ingest,
+          uses.value.surfaceCleaning,
+          uses.value.topical,
+        ],
+        benefits: [
+          benefits.value.boostMood,
+          benefits.value.inflammation,
+          benefits.value.painRelief,
+          benefits.value.sleep,
+          benefits.value.stressRelief,
+        ]
+      })
+      .then(() => {
+        console.log('Success');
+      })
+      .catch((err) => {
+        console.error('Error: ', err);
+      });
+  }
 }
+
