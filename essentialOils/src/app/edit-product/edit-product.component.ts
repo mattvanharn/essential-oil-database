@@ -36,11 +36,10 @@ export class EditProductComponent {
     stressRelief: this.data.benefits[4],
   });
 
-  async editProduct() {
+  editProduct() {
     const path: string = this.data.name.replace(/\s/g, '').toLowerCase();
     console.log('hi there', path);
-    await this.db
-      // .collection('products')
+    this.db
       .doc('/products/' + path)
       .set({
         name: this.data.name,
@@ -65,7 +64,6 @@ export class EditProductComponent {
       .catch((err) => {
         console.error('Error: ', err);
       });
-    //throw new Error('Method not implemented.');
   }
   deleteProduct(product: any): void {
     this.db
