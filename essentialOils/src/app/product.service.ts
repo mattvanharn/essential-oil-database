@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { PRODUCTS } from './mock-products';
 import { Observable, of } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { PRODUCTS } from './mock-products';
 
 
 @Injectable({
@@ -9,10 +10,27 @@ import { Observable, of } from 'rxjs';
 })
 export class ProductService {
 
-  constructor() { }
+  products$: Observable<Product[]>;
+  constructor(private db: AngularFirestore) {
+    this.db.firestore.settings({ experimentalForceLongPolling: true });
+    this.products$ = this.db.collection<Product>('products')
+      .valueChanges()
+  }
 
-  getProducts(): Observable<Product[]> {
-    const products = of(PRODUCTS);
-    return products;
+  getProducts$(): Observable<Product[]> {
+    return this.db.collection<Product>('products')
+      .valueChanges()
+  }
+
+  deleteProduct(product$: Product): void {
+    this.db
+      .doc('/products/' + product$.name.replace(/\s/g, '').toLowerCase())
+      .delete()
+      .then(() => {
+        console.log('Document successfully deleted!');
+      })
+      .catch((err) => {
+        console.error('Error removing doc: ', err);
+      });
   }
 }

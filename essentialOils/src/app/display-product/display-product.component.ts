@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable, Subject } from 'rxjs';
 import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-display-product',
@@ -8,56 +10,24 @@ import { Product } from '../product';
   styleUrls: ['./display-product.component.scss'],
 })
 
-export class DisplayProductComponent {
-  @Input() displayedProducts: Product[] = [];
+export class DisplayProductComponent implements OnInit {
 
-  constructor(
-    private productService: ProductService,
-    private db: AngularFirestore
-  ) {
-    db.firestore.settings({ experimentalForceLongPolling: true });
-    db.collection<Product>('products')
-      .valueChanges()
-      .subscribe((items) => {
-        if (items) {
-          this.products = [];
-          items.forEach((doc) => {
-            this.products.push(doc);
-          });
-        }
-        console.log(this.products[0].uses);
-      });
+  products$!: Observable<Product[]>;
+  displayedProducts!: Observable<Product[]>;
+
+  constructor(private productService: ProductService) { }
+
+  ngOnInit(): void {
+    this.getProducts$();
   }
 
-  getProducts(): void {
-    //this.products = this.productService.getProducts();
+  getProducts$() {
+    this.products$ = this.productService.getProducts$();
+    this.displayedProducts = this.products$;
+    throw new Error('Method not implemented.');
   }
 
   deleteProduct(product: Product): void {
-    this.db
-      .doc('/products/' + product.name.replace(/\s/g, '').toLowerCase())
-      .delete()
-      .then(() => {
-        console.log('Document successfully deleted!');
-      })
-      .catch((err) => {
-        console.error('Error removing doc: ', err);
-      });
-    this.updateData();
-  }
-
-  updateData() {
-    this.db
-      .collection<Product>('products')
-      .valueChanges()
-      .subscribe((items) => {
-        if (items) {
-          this.products = [];
-          items.forEach((doc) => {
-            this.products.push(doc);
-          });
-        }
-        console.log(this.products[0].uses);
-      });
+    this.productService.deleteProduct(product);
   }
 }
