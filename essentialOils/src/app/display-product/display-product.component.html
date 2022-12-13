@@ -1,13 +1,16 @@
 <span class="card-container">
-  <mat-card class="display-card" *ngFor="let product of products">
+  <mat-card
+    class="display-card"
+    *ngFor="let product$ of displayedProducts | async"
+  >
     <div class="title-container">
-      <mat-card-title class="product-name">
-        {{ product.name }}
-        <span>
-          <button
+      <mat-card-title class="product-name"
+        >{{ product$.name }}
+        <span
+          ><button
             mat-mini-fab
             class="edit-icon"
-            (click)="openEditDialog(product)"
+            (click)="openEditDialog(product$)"
           >
             <mat-icon>edit</mat-icon>
           </button>
@@ -15,17 +18,17 @@
       </mat-card-title>
     </div>
     <mat-card-subtitle class="product-description">
-      {{ product.description }}
+      {{ product$.description }}
     </mat-card-subtitle>
     <div class="bottom">
       <span class="uses-container">
         Uses
         <div>
           <ul class="uses">
-            <li *ngIf="product.uses[0]">Diffuse</li>
-            <li *ngIf="product.uses[1]">Ingest</li>
-            <li *ngIf="product.uses[2]">Surface Cleaning</li>
-            <li *ngIf="product.uses[3]">Topical</li>
+            <li *ngIf="product$.uses[0]">Diffuse</li>
+            <li *ngIf="product$.uses[1]">Ingest</li>
+            <li *ngIf="product$.uses[2]">Surface Cleaning</li>
+            <li *ngIf="product$.uses[3]">Topical</li>
           </ul>
         </div>
       </span>
@@ -33,11 +36,11 @@
         Benefits:
         <div>
           <ul class="benefits">
-            <li *ngIf="product.benefits[0]">Boost Mood</li>
-            <li *ngIf="product.benefits[1]">Inflammation</li>
-            <li *ngIf="product.benefits[2]">Pain Relief</li>
-            <li *ngIf="product.benefits[3]">Sleep Aid</li>
-            <li *ngIf="product.benefits[4]">Stress Relief</li>
+            <li *ngIf="product$.benefits[0]">Boost Mood</li>
+            <li *ngIf="product$.benefits[1]">Inflammation</li>
+            <li *ngIf="product$.benefits[2]">Pain Relief</li>
+            <li *ngIf="product$.benefits[3]">Sleep Aid</li>
+            <li *ngIf="product$.benefits[4]">Stress Relief</li>
           </ul>
         </div>
       </span>

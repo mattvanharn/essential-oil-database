@@ -17,8 +17,9 @@ export class AddProductComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private db: AngularFirestore
-  ) {}
+    private db: AngularFirestore,
+    private productService: ProductService
+  ) { }
 
   uses = this._formBuilder.group({
     diffuse: false,
@@ -35,38 +36,40 @@ export class AddProductComponent implements OnInit {
     stressRelief: false,
   });
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  ngOnSubmit(): void {}
-  async submitProduct() {
-    const path: string = this.name.replace(/\s/g, '').toLowerCase();
-    console.log('hi there', path);
-    await this.db
-      // .collection('products')
-      .doc('/products/' + path)
-      .set({
-        name: this.name,
-        description: this.description,
-        uses: [
-          this.uses.value.diffuse,
-          this.uses.value.ingest,
-          this.uses.value.surfaceCleaning,
-          this.uses.value.topical,
-        ],
-        benefits: [
-          this.benefits.value.boostMood,
-          this.benefits.value.inflammation,
-          this.benefits.value.painRelief,
-          this.benefits.value.sleep,
-          this.benefits.value.stressRelief,
-        ],
-      })
-      .then(() => {
-        console.log('Success');
-      })
-      .catch((err) => {
-        console.error('Error: ', err);
-      });
+  onSubmit(): void {
+    console.log("test");
+    this.productService.submitProduct(this.name, this.description, this.uses, this.benefits);
+    // const path: string = this.name.replace(/\s/g, '').toLowerCase();
+    // console.log('hi there', path);
+    // await this.db
+    //   // .collection('products')
+    //   .doc('/products/' + path)
+    //   .set({
+    //     name: this.name,
+    //     description: this.description,
+    //     uses: [
+    //       this.uses.value.diffuse,
+    //       this.uses.value.ingest,
+    //       this.uses.value.surfaceCleaning,
+    //       this.uses.value.topical,
+    //     ],
+    //     benefits: [
+    //       this.benefits.value.boostMood,
+    //       this.benefits.value.inflammation,
+    //       this.benefits.value.painRelief,
+    //       this.benefits.value.sleep,
+    //       this.benefits.value.stressRelief,
+    //     ],
+    //   })
+    //   .then(() => {
+    //     console.log('Success');
+    //   })
+    //   .catch((err) => {
+    //     console.error('Error: ', err);
+    //   });
     //throw new Error('Method not implemented.');
   }
 }
+
