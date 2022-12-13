@@ -32,6 +32,17 @@ export class DisplayProductComponent implements OnInit {
 
   deleteProduct(product: Product): void {
     this.productService.deleteProduct(product);
+    }
+    
+  openEditDialog(product: Product) {
+    this.dialogRef.open(EditProductComponent, {
+      data: {
+        name: product.name,
+        description: product.description,
+        uses: product.uses,
+        benefits: product.benefits,
+      },
+    });
   }
 
   openEditDialog(product: Product) {
