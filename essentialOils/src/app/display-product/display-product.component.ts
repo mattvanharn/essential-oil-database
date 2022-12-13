@@ -38,16 +38,4 @@ export class DisplayProductComponent {
       },
     });
   }
-
-  deleteProduct(product: Product): void {
-    this.db
-      .doc('/products/' + product.name.replace(/\s/g, '').toLowerCase())
-      .delete()
-      .then(() => {
-        console.log('Document successfully deleted!');
-      })
-      .catch((err) => {
-        console.error('Error removing doc: ', err);
-      });
-  }
 }

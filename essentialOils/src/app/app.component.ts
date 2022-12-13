@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.db.firestore.settings({ experimentalForceLongPolling: true });
+    //this.db.firestore.settings({ experimentalForceLongPolling: true });
     this.db
       .collection<Product>('products')
       .valueChanges()
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
             this.products.push(doc);
           });
         }
-        console.log(this.products[0].uses);
+        //console.log(this.products[0].uses);
       });
     this.displayedProducts = this.products;
   }
