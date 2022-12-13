@@ -67,15 +67,6 @@ export class AddProductComponent implements OnInit {
       .catch((err) => {
         console.error('Error: ', err);
       });
-
-    alert(
-      'You submitted a product:' +
-        this.name +
-        ', description: ' +
-        this.description +
-        ', uses: ' +
-        this.uses.value.diffuse
-    );
     //throw new Error('Method not implemented.');
   }
 }

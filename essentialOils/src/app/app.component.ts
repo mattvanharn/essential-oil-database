@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts$();
   }
+  
   getProducts$() {
     this.products$ = this.productService.getProducts$();
     this.displayedProducts$ = this.products$;
@@ -57,7 +58,7 @@ export class AppComponent implements OnInit {
 
   title = 'essentialOils';
 
-  openDialog() {
+  openAddDialog() {
     this.dialogRef.open(AddProductComponent);
   }
 
