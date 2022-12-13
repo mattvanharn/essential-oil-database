@@ -15,7 +15,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
   checked1: boolean = false;
   checked2: boolean = false;
   checked3: boolean = false;
@@ -29,7 +28,11 @@ export class AppComponent implements OnInit {
   products$!: Observable<Product[]>;
   displayedProducts$!: Observable<Product[]>;
 
-  constructor(private dialogRef: MatDialog, public productService: ProductService, private _formBuilder: FormBuilder) { }
+  constructor(
+    private dialogRef: MatDialog,
+    public productService: ProductService,
+    private _formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.getProducts$();

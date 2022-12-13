@@ -21,14 +21,14 @@ export class EditProductComponent {
     }
   ) {}
 
-  uses = this._formBuilder.group({
+  editUses = this._formBuilder.group({
     diffuse: this.data.uses[0],
     ingest: this.data.uses[1],
     surfaceCleaning: this.data.uses[2],
     topical: this.data.uses[3],
   });
 
-  benefits = this._formBuilder.group({
+  editBenefits = this._formBuilder.group({
     boostMood: this.data.benefits[0],
     inflammation: this.data.benefits[1],
     painRelief: this.data.benefits[2],
@@ -46,17 +46,17 @@ export class EditProductComponent {
         name: this.data.name,
         description: this.data.description,
         uses: [
-          this.uses.value.diffuse,
-          this.uses.value.ingest,
-          this.uses.value.surfaceCleaning,
-          this.uses.value.topical,
+          this.editUses.value.diffuse,
+          this.editUses.value.ingest,
+          this.editUses.value.surfaceCleaning,
+          this.editUses.value.topical,
         ],
         benefits: [
-          this.benefits.value.boostMood,
-          this.benefits.value.inflammation,
-          this.benefits.value.painRelief,
-          this.benefits.value.sleep,
-          this.benefits.value.stressRelief,
+          this.editBenefits.value.boostMood,
+          this.editBenefits.value.inflammation,
+          this.editBenefits.value.painRelief,
+          this.editBenefits.value.sleep,
+          this.editBenefits.value.stressRelief,
         ],
       })
       .then(() => {
@@ -66,5 +66,16 @@ export class EditProductComponent {
         console.error('Error: ', err);
       });
     //throw new Error('Method not implemented.');
+  }
+  deleteProduct(product: any): void {
+    this.db
+      .doc('/products/' + product.replace(/\s/g, '').toLowerCase())
+      .delete()
+      .then(() => {
+        console.log('Document successfully deleted!');
+      })
+      .catch((err) => {
+        console.error('Error removing doc: ', err);
+      });
   }
 }
