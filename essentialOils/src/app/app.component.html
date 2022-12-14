@@ -16,11 +16,15 @@
     <mat-sidenav #snav mode="push" [fixedInViewport]="true" fixedTopGap="100">
       <!-- Add Product -->
       <form>
-        <mat-form-field>
+        <!-- <mat-form-field>
           <input matInput type="text" placeholder="Search" name="search" [(ngModel)]="search" />
           <button mat-button>
             <mat-icon>search</mat-icon>
           </button>
+        </mat-form-field> -->
+        <mat-form-field class="search-input nav-item">
+          <mat-label>Search</mat-label>
+          <input matInput type=" text" [(ngModel)]="search" [ngModelOptions]="{ standalone: true }" />
         </mat-form-field>
       </form>
 
