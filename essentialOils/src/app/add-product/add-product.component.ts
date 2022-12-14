@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private db: AngularFirestore,
     private productService: ProductService
-  ) { }
+  ) {}
 
   uses = this._formBuilder.group({
     diffuse: false,
@@ -33,10 +33,9 @@ export class AddProductComponent implements OnInit {
     stressRelief: false,
   });
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onSubmit(): void {
-    console.log("test");
     this.productService.submitProduct(this.name, this.description, this.uses, this.benefits);
   }
 }

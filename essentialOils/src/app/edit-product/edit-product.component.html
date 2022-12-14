@@ -44,15 +44,10 @@
     </p>
   </section>
 
-  <!-- <section class="benefits-section" [formGroup]="benefits">
-    <h4>You chose:</h4>
-    {{benefits.value | json}}
-  </section> -->
-
-  <button class="submit-product-button" mat-raised-button extended color="primary" (click)="editProduct()">
+  <button class="submit-product-button" mat-raised-button extended color="primary" (click)="editProduct()" mat-dialog-close>
     Submit
   </button>
-  <button class="delete-button" mat-mini-fab extended color="primary" (click)="deleteProduct(data.name)">
+  <button class="delete-button" mat-mini-fab extended color="primary" (click)="deleteProduct(data.name)" mat-dialog-close>
     <mat-icon>delete</mat-icon>
   </button>
 </form>
