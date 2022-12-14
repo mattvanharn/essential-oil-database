@@ -8,13 +8,13 @@
 
   &::after {
     content: "";
-    width: 67%;
+    flex: 9999999999999999 1 auto;
   }
 }
 
 .display-card {
   flex: 1 1 24%;
-  height: 30vh;
+  height: 35vh;
   margin: 10px;
   border-radius: 10px;
   // background-color: var(--md-sys-color-primary-container);
@@ -35,15 +35,14 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  font-weight: 400;
-  font-size: 2.5em;
+  font-weight: 500;
+  font-size: 3em;
   color: var(--high-emphasis-helper);
-  top: -5px;
 }
 
 .uses-container,
 .benefits-container {
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: var(--high-emphasis-helper);
   width: 50%;
 }
@@ -62,7 +61,7 @@
 
 .product-description {
   font-size: 1.5em;
-  padding-top: 10px;
+  padding-top: 20px;
   color: var(--high-emphasis-helper);
 }
 
