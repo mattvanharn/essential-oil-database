@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 
@@ -12,12 +12,13 @@ import { ProductService } from '../product.service';
   styleUrls: ['./display-product.component.scss'],
 })
 export class DisplayProductComponent implements OnInit {
+
   products$!: Observable<Product[]>;
-  displayedProducts!: Observable<Product[]>;
+  displayedProducts$!: Observable<Product[]>;
 
   constructor(
     private productService: ProductService,
-    private dialogRef: MatDialog
+    private dialogRef: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +27,7 @@ export class DisplayProductComponent implements OnInit {
 
   getProducts$() {
     this.products$ = this.productService.getProducts$();
-    this.displayedProducts = this.products$;
+    this.displayedProducts$ = this.products$;
     throw new Error('Method not implemented.');
   }
 

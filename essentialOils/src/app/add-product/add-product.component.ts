@@ -15,18 +15,27 @@ export class AddProductComponent implements OnInit {
   description: string = '';
 
   uses = this._formBuilder.group({
-    diffuse: false,
-    ingest: false,
-    surfaceCleaning: false,
-    topical: false,
+    diffuser: false,
+    ingestion: false,
+    inhilation: false,
+    dryEvaporation: false,
+    skin: false,
+    bathAndShower: false,
+    humidifier: false,
+    surfaceCleaning: false
   });
 
   benefits = this._formBuilder.group({
-    boostMood: false,
-    inflammation: false,
-    painRelief: false,
-    sleep: false,
+    relaxation: false,
+    digestion: false,
+    calming: false,
     stressRelief: false,
+    painRelief: false,
+    sleepAid: false,
+    moodImprovement: false,
+    energyBoost: false,
+    skinAndHairHealth: false,
+    hormoneBalance: false
   });
 
   constructor(

@@ -1,5 +1,6 @@
 <span class="card-container">
-  <mat-card class="display-card" *ngFor="let product$ of displayedProducts | async">
+  <!-- <mat-card class="display-card" *ngFor="let product$ of displayedProducts | async"> -->
+  <mat-card class="display-card" *ngFor="let product$ of displayedProducts$ | async">
     <div class="top">
       <mat-card-title class="product-name">{{ product$.name }}
         <button mat-mini-fab (click)="openEditDialog(product$)">
@@ -15,10 +16,14 @@
         Uses
         <div>
           <ul class="uses">
-            <li *ngIf="product$.uses[0]">Diffuse</li>
-            <li *ngIf="product$.uses[1]">Ingest</li>
-            <li *ngIf="product$.uses[2]">Surface Cleaning</li>
-            <li *ngIf="product$.uses[3]">Topical</li>
+            <li *ngIf="product$.uses[0]">Diffuser</li>
+            <li *ngIf="product$.uses[1]">Ingestion</li>
+            <li *ngIf="product$.uses[2]">Inhilation</li>
+            <li *ngIf="product$.uses[3]">Dry Evaporation</li>
+            <li *ngIf="product$.uses[4]">Skin</li>
+            <li *ngIf="product$.uses[5]">Bath & Shower</li>
+            <li *ngIf="product$.uses[6]">Humidifier</li>
+            <li *ngIf="product$.uses[7]">Surface Cleaning</li>
           </ul>
         </div>
       </span>
@@ -26,11 +31,16 @@
         Benefits:
         <div>
           <ul class="benefits">
-            <li *ngIf="product$.benefits[0]">Boost Mood</li>
-            <li *ngIf="product$.benefits[1]">Inflammation</li>
-            <li *ngIf="product$.benefits[2]">Pain Relief</li>
-            <li *ngIf="product$.benefits[3]">Sleep Aid</li>
-            <li *ngIf="product$.benefits[4]">Stress Relief</li>
+            <li *ngIf="product$.benefits[0]">Relaxation</li>
+            <li *ngIf="product$.benefits[1]">Digestion</li>
+            <li *ngIf="product$.benefits[2]">Calming</li>
+            <li *ngIf="product$.benefits[3]">Stress Relief</li>
+            <li *ngIf="product$.benefits[4]">Pain Relief</li>
+            <li *ngIf="product$.benefits[5]">Sleep Aid</li>
+            <li *ngIf="product$.benefits[6]">Move Improvement</li>
+            <li *ngIf="product$.benefits[7]">Energy Boost</li>
+            <li *ngIf="product$.benefits[8]">Skin & Hair Health</li>
+            <li *ngIf="product$.benefits[9]">Hormone Balance</li>
           </ul>
         </div>
       </span>

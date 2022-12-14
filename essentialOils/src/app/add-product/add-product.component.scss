@@ -2,7 +2,7 @@
 @import 'src/styles.scss';
 
 .input-form {
-  height: 90%;
+  height: auto;
   width: 30vw;
 }
 
@@ -16,16 +16,30 @@
   width: 100%;
 }
 
-.uses-title {
-  font-weight: 200;
+.uses-section,
+.benefits-section {
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-bottom: 20px;
 }
 
+.left-half,
+.right-half {
+  flex: 50%;
+}
+
+.uses-title,
 .benefits-title {
+  font-size: 2em;
   font-weight: 200;
+  flex: 1 0 25%;
+  padding: 0 10px;
 }
 
 .submit-product-button {
   position: relative;
+  float: right;
   display: inline-flex;
   width: auto;
   padding: 5px 20px;
@@ -34,8 +48,12 @@
   background-color: mat.get-color-from-palette($my-primary);
 }
 
+.button-text {
+  width: 100%;
+}
+
 // * {
-//   border: 1px solid red;
+//   border: 1px solid black;
 // }
 
 // @media screen and (min-width: 600px) {
