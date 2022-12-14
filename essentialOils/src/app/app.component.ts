@@ -5,7 +5,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 
 import { ProductService } from './product.service';
 import { Product } from './product';
-import { Observable } from 'rxjs';
+import { Observable, filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -33,11 +33,9 @@ export class AppComponent implements OnInit {
   checked18: boolean = false;
 
 
-  // products$!: Observable<Product[]>;
-  // displayedProducts$!: Observable<Product[]>;
+  products$!: Observable<Product[]>;
+  displayedProducts$!: Observable<Product[]>;
 
-  products$!: Product[];
-  displayedProducts$!: Product[];
   search: string = '';
 
   constructor(
@@ -52,21 +50,21 @@ export class AppComponent implements OnInit {
   }
 
   getProducts$() {
-    // this.productService.getProducts$();
-    this.productService.getProducts$().subscribe(products$ => this.products$ = products$);
+    this.productService.getProducts$();
+    // this.productService.getProducts$().subscribe(products$ => this.products$ = products$);
     this.displayedProducts$ = this.products$;
     throw new Error('Method not implemented.');
   }
 
   filterProducts$ByUse(index: number) {
-    // return (this.products$).filter(product$ => product$.uses[index] === true);
+    return this.products$.pipe(map(products$ => products$.filter(product$ => product$.uses[index] === true)));
     throw new Error('Method not implemented.');
   }
 
-  filterProducts$ByBenefit(index: number) {
-    // return (this.products$).filter(product$ => product$.benefits[index] === true);
-    throw new Error('Method not implemented.');
-  }
+  // filterProducts$ByBenefit(index: number) {
+  //   return (this.products$).filter((product$: { benefits: boolean[]; }) => product$.benefits[index] === true);
+  //   throw new Error('Method not implemented.');
+  // }
 
   addProduct() {
     alert('You pressed the button');
@@ -81,7 +79,7 @@ export class AppComponent implements OnInit {
 
   onChecked1() {
     this.checked1 = !this.checked1;
-    // this.checked1 ? this.displayedProducts = this.filterProductsByUse(0) : this.displayedProducts = this.products;
+    this.checked1 ? this.displayedProducts$ = this.filterProducts$ByUse(0) : this.displayedProducts$ = this.products$;
     return false;
     throw new Error('Method not implemented.');
   }
