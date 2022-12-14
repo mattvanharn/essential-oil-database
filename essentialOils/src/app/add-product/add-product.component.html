@@ -1,12 +1,7 @@
 <form #f="ngForm" validate class="input-form" (ngSubmit)="onSubmit()">
   <mat-form-field class="name-input">
     <mat-label>Product Name</mat-label>
-    <input
-      matInput
-      type="text"
-      [(ngModel)]="name"
-      [ngModelOptions]="{ standalone: true }"
-    />
+    <input matInput type="text" [(ngModel)]="name" [ngModelOptions]="{ standalone: true }" required />
   </mat-form-field>
   <br />
   <mat-form-field class="description-input">
@@ -70,13 +65,7 @@
     </p>
   </section>
 
-  <button
-    class="submit-product-button"
-    mat-raised-button
-    extended
-    color="primary"
-    mat-dialog-close
-  >
+  <button class="submit-product-button" mat-raised-button extended color="primary" mat-dialog-close>
     Submit
   </button>
 </form>

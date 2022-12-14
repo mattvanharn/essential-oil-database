@@ -36,11 +36,6 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.productService.submitProduct(
-      this.name,
-      this.description,
-      this.uses,
-      this.benefits
-    );
+    this.productService.submitProduct(this.name, this.description, this.uses, this.benefits);
   }
 }

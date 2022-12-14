@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormGroup } from '@angular/forms';
 
@@ -30,16 +30,14 @@ export class ProductService {
       });
   }
 
-  submitProduct(
-    name: string,
-    description: string,
-    uses: FormGroup,
-    benefits: FormGroup
-  ) {
+  submitProduct(name: string, description: string, uses: FormGroup, benefits: FormGroup) {
+    // const productArray: Object[] = this.products$.pipe(tap(product => this.products$ = product));
+    // const id: number = this.genId(productArray);
     const path: string = name.replace(/\s/g, '').toLowerCase();
     this.db
       .doc('/products/' + path)
       .set({
+        // id: id;
         name: name,
         description: description,
         uses: [
@@ -63,4 +61,8 @@ export class ProductService {
         console.error('Error: ', err);
       });
   }
+
+  // genId(productArray: Object[]): number {
+  //   return productArray.length > 0 ? Math.max(...productArray.map(product => product.id)) + 1 : 11;
+  // }
 }
