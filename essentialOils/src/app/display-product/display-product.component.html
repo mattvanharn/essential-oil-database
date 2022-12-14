@@ -1,16 +1,15 @@
 <span class="card-container">
   <mat-card class="display-card" *ngFor="let product$ of displayedProducts | async">
-    <div class="title-container">
+    <div class="top">
       <mat-card-title class="product-name">{{ product$.name }}
-        <span><button mat-mini-fab class="edit-icon" (click)="openEditDialog(product$)">
-            <mat-icon>edit</mat-icon>
-          </button>
-        </span>
+        <button mat-mini-fab (click)="openEditDialog(product$)">
+          <mat-icon class="edit-icon">edit</mat-icon>
+        </button>
       </mat-card-title>
+      <mat-card-subtitle class="product-description">
+        {{ product$.description }}
+      </mat-card-subtitle>
     </div>
-    <mat-card-subtitle class="product-description">
-      {{ product$.description }}
-    </mat-card-subtitle>
     <div class="bottom">
       <span class="uses-container">
         Uses

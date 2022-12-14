@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     private dialogRef: MatDialog,
     public productService: ProductService,
     private _formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getProducts$();

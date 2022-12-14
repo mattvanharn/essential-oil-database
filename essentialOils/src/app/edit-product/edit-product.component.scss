@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+@import 'src/styles.scss';
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.input-form {
+  height: 90%;
+  width: 30vw;
+}
+
+.name-input {
+  font-size: xx-large;
+  width: 100%;
+}
+
+.description-input {
+  font-size: 1.3em;
+  width: 100%;
+}
+
+.uses-title {
+  font-weight: 200;
+}
+
+.benefits-title {
+  font-weight: 200;
+}
+
+.button-text {
+  display: flex;
+  width: 30%;
+}
+
+.submit-product-button,
+.delete-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 25px;
+  font-size: 1.5em !important;
+  font: weight 400px !important;
+}
+
+.submit-product-button {
+  background-color: mat.get-color-from-palette($my-primary) !important;
+}
+
+.delete-button {
+  background-color: mat.get-color-from-palette($my-warn) !important;
+}
+
+// * {
+//   border: 1px solid red;
+// }
+
+// @media screen and (min-width: 600px) {
+//   * {}
+// }
