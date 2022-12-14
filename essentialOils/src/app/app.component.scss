@@ -62,7 +62,7 @@
 }
 
 .nav-item {
-  min-height: 70px;
+  min-height: 60px;
   width: 300px;
   text-align: left;
   background-color: white;
@@ -75,9 +75,9 @@
 .search-input {
   width: 90%;
   position: relative;
-  margin-top: 20px;
   font-size: 1.5em;
   padding-left: 25px;
+  margin-top: 10px;
 }
 
 .filter-text {
@@ -111,7 +111,7 @@
   width: 100%;
   height: auto;
   padding: 10px 0px 10px 40px;
-  margin: -5px 0 -5px -24px;
+  margin: -6px 0 -6px -24px;
 }
 
 .hover-background:hover {
