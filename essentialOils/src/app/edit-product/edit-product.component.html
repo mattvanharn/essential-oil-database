@@ -44,10 +44,17 @@
     </p>
   </section>
 
-  <button class="submit-product-button" mat-raised-button extended color="primary" (click)="editProduct()" mat-dialog-close>
-    Submit
-  </button>
-  <button class="delete-button" mat-mini-fab extended color="primary" (click)="deleteProduct(data.name)" mat-dialog-close>
-    <mat-icon>delete</mat-icon>
-  </button>
+  <div class="button-container">
+    <span class="button-text">
+      <button class="submit-product-button" mat-fab extended color="primary" (click)="editProduct()" mat-dialog-close>
+        <mat-icon>add</mat-icon> Submit
+      </button>
+    </span>
+    <span class="button-text">
+      <button class="delete-button" mat-fab extended color="primary" (click)="deleteProduct(data.name)"
+        mat-dialog-close>
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </span>
+  </div>
 </form>

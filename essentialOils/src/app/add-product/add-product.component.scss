@@ -1,5 +1,9 @@
+@use '@angular/material' as mat;
+@import 'src/styles.scss';
+
 .input-form {
   height: 90%;
+  width: 30vw;
 }
 
 .name-input {
@@ -21,13 +25,13 @@
 }
 
 .submit-product-button {
-  margin: auto 30px;
-  margin-bottom: 30px;
-  font-size: large;
-  padding: 10px 20px;
-  height: 50px;
+  position: relative;
+  display: inline-flex;
+  width: auto;
+  padding: 5px 20px;
   border-radius: 25px;
-  justify-self: center;
+  font-size: 1.5em !important;
+  background-color: mat.get-color-from-palette($my-primary);
 }
 
 // * {

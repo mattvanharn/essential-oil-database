@@ -18,7 +18,7 @@ export class DisplayProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private dialogRef: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getProducts$();

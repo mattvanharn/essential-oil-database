@@ -15,6 +15,7 @@ export class ProductService {
   }
 
   getProducts$(): Observable<Product[]> {
+    console.log("got products");
     return this.db.collection<Product>('products').valueChanges();
   }
 
@@ -31,13 +32,10 @@ export class ProductService {
   }
 
   submitProduct(name: string, description: string, uses: FormGroup, benefits: FormGroup) {
-    // const productArray: Object[] = this.products$.pipe(tap(product => this.products$ = product));
-    // const id: number = this.genId(productArray);
     const path: string = name.replace(/\s/g, '').toLowerCase();
     this.db
       .doc('/products/' + path)
       .set({
-        // id: id;
         name: name,
         description: description,
         uses: [
@@ -61,8 +59,4 @@ export class ProductService {
         console.error('Error: ', err);
       });
   }
-
-  // genId(productArray: Object[]): number {
-  //   return productArray.length > 0 ? Math.max(...productArray.map(product => product.id)) + 1 : 11;
-  // }
 }

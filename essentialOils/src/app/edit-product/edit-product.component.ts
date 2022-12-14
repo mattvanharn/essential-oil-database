@@ -19,7 +19,7 @@ export class EditProductComponent {
       uses: boolean[];
       benefits: boolean[];
     }
-  ) {}
+  ) { }
 
   editUses = this._formBuilder.group({
     diffuse: this.data.uses[0],

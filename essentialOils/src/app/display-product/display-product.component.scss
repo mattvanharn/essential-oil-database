@@ -11,7 +11,8 @@
 }
 
 .display-card {
-  flex: 1 0 30%;
+  flex: 0 1 45%;
+  height: 30vh;
   margin: 10px;
   border-radius: 10px;
   // background-color: var(--md-sys-color-primary-container);
@@ -26,14 +27,16 @@
   }
 }
 
-.title-container {
-  display: flex;
+.product-name {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
   justify-content: space-between;
-}
-
-.edit-icon {
-  float: right;
-  top: -10px;
+  align-items: center;
+  font-weight: 400;
+  font-size: 2.5em;
+  color: var(--high-emphasis-helper);
+  top: -5px;
 }
 
 .uses-container,
@@ -41,37 +44,24 @@
   font-size: 1.2em;
   color: var(--high-emphasis-helper);
   width: 50%;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
-// .uses-container {}
-
-// .benefits-container {}
+.top,
+.bottom {
+  height: 50%;
+}
 
 .bottom {
   display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-}
-
-.product-name {
-  font-weight: 400;
-  font-size: 2.5em !important;
-  color: var(--high-emphasis-helper);
-  padding-bottom: 40px;
+  position: relative;
+  width: 100%;
+  top: 0;
 }
 
 .product-description {
   font-size: 1.5em;
-  margin-bottom: 100px;
+  padding-top: 10px;
   color: var(--high-emphasis-helper);
-}
-
-.delete-button {
-  float: right;
-  top: -10px;
 }
 
 // * {

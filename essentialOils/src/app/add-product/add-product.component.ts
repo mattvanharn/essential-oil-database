@@ -8,15 +8,11 @@ import { ProductService } from '../product.service';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
 })
-export class AddProductComponent implements OnInit {
-  public name: string = '';
-  public description: string = '';
 
-  constructor(
-    private _formBuilder: FormBuilder,
-    private db: AngularFirestore,
-    private productService: ProductService
-  ) {}
+export class AddProductComponent implements OnInit {
+
+  name: string = '';
+  description: string = '';
 
   uses = this._formBuilder.group({
     diffuse: false,
@@ -33,9 +29,15 @@ export class AddProductComponent implements OnInit {
     stressRelief: false,
   });
 
-  ngOnInit(): void {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private db: AngularFirestore,
+    private productService: ProductService
+  ) { }
 
-  onSubmit(): void {
+  ngOnInit(): void { }
+
+  submitProduct(): void {
     this.productService.submitProduct(this.name, this.description, this.uses, this.benefits);
   }
 }
