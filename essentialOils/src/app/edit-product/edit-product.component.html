@@ -10,41 +10,93 @@
   </mat-form-field>
 
   <section class="uses-section" [formGroup]="editUses">
-    <h2 class="uses-title">Select your uses:</h2>
-    <p>
-      <mat-checkbox color="accent" formControlName="diffuse">Diffuse</mat-checkbox>
-    </p>
-    <p>
-      <mat-checkbox color="accent" formControlName="topical">Topical</mat-checkbox>
-    </p>
-    <p>
-      <mat-checkbox color="accent" formControlName="ingest">Ingest</mat-checkbox>
-    </p>
-    <p>
-      <mat-checkbox color="accent" formControlName="surfaceCleaning">Surface Cleaning</mat-checkbox>
-    </p>
+    <h2 class="uses-title">Uses:</h2>
+    <div class="left-half">
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="diffuser">Diffuser
+        </mat-checkbox>
+      </p>
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="ingestion">Ingestion</mat-checkbox>
+      </p>
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="inhilation">Inhilation</mat-checkbox>
+      </p>
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="dryEvaporation">Dry Evaporation
+        </mat-checkbox>
+      </p>
+    </div>
+    <div class="right-half">
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="skin">Skin
+        </mat-checkbox>
+      </p>
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="bathAndShower">Bath & Shower
+        </mat-checkbox>
+      </p>
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="humidifier">Humidifier</mat-checkbox>
+      </p>
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="surfaceCleaning">Surface Cleaning
+        </mat-checkbox>
+      </p>
+    </div>
   </section>
 
   <section class="benefits-section" [formGroup]="editBenefits">
-    <h2 class="benefits-title">Select your benefits:</h2>
-    <p>
-      <mat-checkbox color="accent" formControlName="boostMood">Boost Mood</mat-checkbox>
-    </p>
-    <p>
-      <mat-checkbox color="accent" formControlName="stressRelief">Stress Relief</mat-checkbox>
-    </p>
-    <p>
-      <mat-checkbox color="accent" formControlName="sleep">Sleep</mat-checkbox>
-    </p>
-    <p>
-      <mat-checkbox color="accent" formControlName="inflammation">Inflammation</mat-checkbox>
-    </p>
-    <p>
-      <mat-checkbox color="accent" formControlName="painRelief">Pain Relief</mat-checkbox>
-    </p>
+    <h2 class="benefits-title">Benefits:</h2>
+    <div class="left-half">
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="relaxation">Relaxation
+        </mat-checkbox>
+      </p>
+      <p class="hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="digestion">Digestion
+        </mat-checkbox>
+      </p>
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="calming">Calming</mat-checkbox>
+      </p>
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="stressRelief">Stress Relief
+        </mat-checkbox>
+      </p>
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="painRelief">Pain Relief
+        </mat-checkbox>
+      </p>
+    </div>
+    <div class="right-half">
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="sleepAid">Sleep Aid
+        </mat-checkbox>
+      </p>
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="moodImprovement">Mood
+          Improvement
+        </mat-checkbox>
+      </p>
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="energyBoost">Energy Boost
+        </mat-checkbox>
+      </p>
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="skinAndHairHealth">Skin &
+          Hair Health
+        </mat-checkbox>
+      </p>
+      <p class=" hover-background filter-checkbox">
+        <mat-checkbox color="accent" formControlName="hormoneBalance">Hormone
+          Balance
+        </mat-checkbox>
+      </p>
+    </div>
   </section>
 
-  <div class="button-container">
+  <div class=" button-container">
     <span class="button-text">
       <button class="submit-product-button" mat-fab extended color="primary" (click)="editProduct()" mat-dialog-close>
         <mat-icon>add</mat-icon> Submit

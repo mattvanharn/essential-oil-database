@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnChanges } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from './add-product/add-product.component';
@@ -22,15 +22,29 @@ export class AppComponent implements OnInit {
   checked7: boolean = false;
   checked8: boolean = false;
   checked9: boolean = false;
+  checked10: boolean = false;
+  checked11: boolean = false;
+  checked12: boolean = false;
+  checked13: boolean = false;
+  checked14: boolean = false;
+  checked15: boolean = false;
+  checked16: boolean = false;
+  checked17: boolean = false;
+  checked18: boolean = false;
 
-  products$!: Observable<Product[]>;
-  displayedProducts$!: Observable<Product[]>;
+
+  // products$!: Observable<Product[]>;
+  // displayedProducts$!: Observable<Product[]>;
+
+  products$!: Product[];
+  displayedProducts$!: Product[];
   search: string = '';
 
   constructor(
     private dialogRef: MatDialog,
     public productService: ProductService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +52,8 @@ export class AppComponent implements OnInit {
   }
 
   getProducts$() {
-    this.products$ = this.productService.getProducts$();
+    // this.productService.getProducts$();
+    this.productService.getProducts$().subscribe(products$ => this.products$ = products$);
     this.displayedProducts$ = this.products$;
     throw new Error('Method not implemented.');
   }
@@ -134,19 +149,99 @@ export class AppComponent implements OnInit {
     return false;
     throw new Error('Method not implemented.');
   }
+  onChecked10() {
+    this.checked10 = !this.checked10;
+    // this.checked10 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked11() {
+    this.checked11 = !this.checked11;
+    // this.checked11 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked12() {
+    this.checked12 = !this.checked12;
+    // this.checked12 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked13() {
+    this.checked13 = !this.checked13;
+    // this.checked13 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked14() {
+    this.checked14 = !this.checked14;
+    // this.checked14 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked15() {
+    this.checked15 = !this.checked15;
+    // this.checked15 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked16() {
+    this.checked16 = !this.checked16;
+    // this.checked16 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked17() {
+    this.checked17 = !this.checked17;
+    // this.checked17 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
+
+  onChecked18() {
+    this.checked18 = !this.checked18;
+    // this.checked18 ? this.displayedProducts$ = this.filterProducts$ByBenefit(4) : this.displayedProducts$ = this.products$;
+    console.table(this.displayedProducts$);
+    return false;
+    throw new Error('Method not implemented.');
+  }
 
   uses = this._formBuilder.group({
-    diffuse: false,
-    ingest: false,
-    surfaceCleaning: false,
-    topical: false,
+    diffuser: false,
+    ingestion: false,
+    inhilation: false,
+    dryEvaporation: false,
+    skin: false,
+    bathAndShower: false,
+    humidifier: false,
+    surfaceCleaning: false
   });
 
   benefits = this._formBuilder.group({
-    boostMood: false,
-    inflammation: false,
-    painRelief: true,
-    sleep: true,
+    relaxation: false,
+    digestion: false,
+    calming: false,
     stressRelief: false,
+    painRelief: false,
+    sleepAid: false,
+    moodImprovement: false,
+    energyBoost: false,
+    skinAndHairHealth: false,
+    hormoneBalance: false
   });
 }

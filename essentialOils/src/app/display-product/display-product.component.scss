@@ -1,17 +1,19 @@
 @use '@angular/material' as mat;
 @import 'src/styles.scss';
 
-* {
-  box-sizing: border-box;
-}
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+
+  &::after {
+    content: "";
+    width: 67%;
+  }
 }
 
 .display-card {
-  flex: 0 1 45%;
+  flex: 1 1 24%;
   height: 30vh;
   margin: 10px;
   border-radius: 10px;
