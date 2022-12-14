@@ -97,8 +97,8 @@
   </section>
 
   <span class="button-text">
-    <button class="submit-product-button" mat-raised-button extended color="primary" (click)="submitProduct()"
-      mat-dialog-close>
+    <button class="submit-product-button" mat-raised-button extended color="primary" type="submit" [disabled]="!f.valid"
+      (click)="submitProduct()" mat-dialog-close>
       <mat-icon class="add-icon">add</mat-icon> &nbsp;Submit
     </button>
   </span>
